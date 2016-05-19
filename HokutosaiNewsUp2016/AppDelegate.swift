@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityIndicatorManager.sharedManager.startDelay = 0.1
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        //self.window?.rootViewController = NewsViewController();
+        self.window?.rootViewController = UINavigationController(rootViewController: NewsViewController())
         self.window?.makeKeyAndVisible()
         
         return true
