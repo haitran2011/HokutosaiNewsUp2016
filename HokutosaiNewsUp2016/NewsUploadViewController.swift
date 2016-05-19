@@ -108,7 +108,7 @@ class NewsUploadViewController: FormViewController {
             guard response.isSuccess, let _ = response.model else {
                 let code = response.statusCode ?? 0
                 let cause = response.error?.cause ?? "不明"
-                let alertController = UIAlertController(title: "Failured (#\(code))", message: "お知らせの投稿に失敗しました。(\(cause))", preferredStyle: .ActionSheet)
+                let alertController = UIAlertController(title: "Failured (#\(code))", message: "お知らせの投稿に失敗しました。(\(cause))", preferredStyle: .Alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
                 self.sendButton.enabled = true
