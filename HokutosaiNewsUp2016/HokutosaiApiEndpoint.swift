@@ -51,6 +51,14 @@ extension HokutosaiApi {
         }
         */
         
+        class PostOnlyArticle: HokutosaiApiEndpoint<ObjectResource<UploadingArticle>> {
+            init() { super.init(basePath: basePath, path: "/article") }
+        }
+            
+        class DeleteOnlyArticle: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>> {
+            init(newsId: UInt) { super.init(basePath: basePath, path: "/\(newsId)") }
+        }
+        
     }
     
     /*
