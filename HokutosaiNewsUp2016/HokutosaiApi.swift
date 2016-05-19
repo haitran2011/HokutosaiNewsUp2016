@@ -15,8 +15,8 @@ class HokutosaiApi {
     private class AuthorizationHeader {
     
         static let name = "Authorization"
-        private static let apiUserId = "client-ios-app"
-        private static let apiAccessToken = "hJixYqBgFOMgOvvXy8pbZ84JrNfuV8a2PKaMedhvFKj87AKGPtla19HKRKqsPya3"
+        private static let apiUserId = "management-ios-app"
+        private static let apiAccessToken = "oU5KMLXjQRpnDvRxxgP39PkKXmmm3TxExvIq3BA3uBAeJS6FyYflq3kFA5XYTghN"
         
         class func generate(account: HokutosaiAccount?) -> String {
             var value = "user_id=\(apiUserId),access_token=\(apiAccessToken)"
@@ -33,8 +33,8 @@ class HokutosaiApi {
     // Management User Only
     private class HokutosaiAccount {
         
-        let accountId: String = ""
-        let accountPass: String = ""
+        let accountId: String = "management-ios"
+        let accountPass: String = "gq4r29JPZ2EbkpAvRp9wpaDCfSrCV9OtOCfWyG4YXBNvCXfhI685bs7GIiG6W5NR"
         
         static let sharedAccountForManager = HokutosaiAccount()
         private init() {}
