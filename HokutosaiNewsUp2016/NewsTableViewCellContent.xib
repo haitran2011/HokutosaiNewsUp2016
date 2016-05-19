@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsTableViewCell" customModule="HokutosaiNewsUp2016" customModuleProvider="target">
             <connections>
                 <outlet property="datetimeLabel" destination="oMh-Ag-KkS" id="xfU-HR-18f"/>
-                <outlet property="likesCountLabel" destination="fBQ-fu-29r" id="qfT-MM-W4b"/>
+                <outlet property="idLabel" destination="fBQ-fu-29r" id="7w8-mI-Sg2"/>
                 <outlet property="organizerLabel" destination="iUK-qG-A0o" id="HLO-8u-LlX"/>
                 <outlet property="titleLabel" destination="hcx-mi-kqO" id="YP4-QB-VZE"/>
                 <outlet property="topicIcon" destination="j9l-Gm-SOA" id="FEP-Yv-EKl"/>
@@ -37,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="yyyy/MM/dd HH:mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMh-Ag-KkS">
-                    <rect key="frame" x="10" y="574" width="513" height="18"/>
+                    <rect key="frame" x="10" y="574" width="560" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="u8R-u7-BjK"/>
                     </constraints>
@@ -45,16 +45,8 @@
                     <color key="textColor" red="0.49363425929999999" green="0.49363425929999999" blue="0.49363425929999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Po9-0x-gKn">
-                    <rect key="frame" x="531" y="574" width="20" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="K1I-9S-XPc"/>
-                        <constraint firstAttribute="height" constant="17" id="KoG-A8-hAm"/>
-                    </constraints>
-                    <state key="normal" title="Button" image="GrayHertIcon"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-fu-29r">
-                    <rect key="frame" x="553" y="574" width="39" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-fu-29r">
+                    <rect key="frame" x="578" y="574" width="14" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="tpl-Ga-Gfv"/>
                     </constraints>
@@ -74,16 +66,14 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="hcx-mi-kqO" secondAttribute="trailing" constant="8" id="3WD-pc-Rol"/>
                 <constraint firstItem="oMh-Ag-KkS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="3bP-zp-AQq"/>
-                <constraint firstAttribute="bottom" secondItem="Po9-0x-gKn" secondAttribute="bottom" constant="9" id="52i-2y-RcT"/>
                 <constraint firstItem="j9l-Gm-SOA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AWS-x6-rqY"/>
                 <constraint firstAttribute="bottom" secondItem="oMh-Ag-KkS" secondAttribute="bottom" constant="8" id="B2H-jv-EEg"/>
-                <constraint firstItem="Po9-0x-gKn" firstAttribute="leading" secondItem="oMh-Ag-KkS" secondAttribute="trailing" constant="8" id="GkT-QV-YDe"/>
                 <constraint firstItem="iUK-qG-A0o" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="2" id="SfV-Su-PSG"/>
                 <constraint firstAttribute="bottom" secondItem="fBQ-fu-29r" secondAttribute="bottom" constant="8" id="TYh-Az-lXB"/>
                 <constraint firstAttribute="trailing" secondItem="fBQ-fu-29r" secondAttribute="trailing" constant="8" id="YPN-nG-a3f"/>
                 <constraint firstAttribute="trailing" secondItem="j9l-Gm-SOA" secondAttribute="trailing" id="ZDr-XC-3RQ"/>
                 <constraint firstAttribute="trailing" secondItem="iUK-qG-A0o" secondAttribute="trailing" constant="8" id="bJG-EN-EyT"/>
-                <constraint firstItem="fBQ-fu-29r" firstAttribute="leading" secondItem="Po9-0x-gKn" secondAttribute="trailing" constant="2" id="r9e-Z6-a0l"/>
+                <constraint firstItem="fBQ-fu-29r" firstAttribute="leading" secondItem="oMh-Ag-KkS" secondAttribute="trailing" constant="8" id="gZd-ZM-2FO"/>
                 <constraint firstItem="hcx-mi-kqO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="s31-IL-lFU"/>
                 <constraint firstItem="iUK-qG-A0o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="st1-ep-rqa"/>
                 <constraint firstItem="hcx-mi-kqO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="tmj-aL-GLJ"/>
@@ -92,7 +82,6 @@
         </view>
     </objects>
     <resources>
-        <image name="GrayHertIcon" width="50" height="41"/>
         <image name="TopicIcon" width="50" height="50"/>
     </resources>
 </document>

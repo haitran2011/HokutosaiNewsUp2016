@@ -15,10 +15,10 @@ class NewsTableViewCell: UITableViewCell {
     var firstImageView: UIImageView!
     var newsContentView: UIView!
     
+    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var organizerLabel: UILabel!
     @IBOutlet weak var datetimeLabel: UILabel!
-    @IBOutlet weak var likesCountLabel: UILabel!
     @IBOutlet weak var topicIcon: UIImageView!
     
     var index: Int!
@@ -64,6 +64,13 @@ class NewsTableViewCell: UITableViewCell {
         
         self.initLayout()
         
+        if let id = article.newsId {
+            self.idLabel.text = "ID: \(id)"
+        }
+        else {
+            self.idLabel.text = "ID不明"
+        }
+        
         self.titleLabel.text = article.title ?? "タイトル無し"
         
         self.organizerLabel.text = article.relatedTitle
@@ -73,13 +80,6 @@ class NewsTableViewCell: UITableViewCell {
         }
         else {
             self.datetimeLabel.text = nil
-        }
-        
-        if let likesCount = article.likesCount {
-            self.likesCountLabel.text = String(likesCount)
-        }
-        else {
-            self.likesCountLabel.text = "0"
         }
         
         if let topic = article.isTopic where topic {
@@ -115,17 +115,6 @@ class NewsTableViewCell: UITableViewCell {
         self.newsContentView.hidden = false
         self.firstImageView.snp_removeConstraints()
         self.newsContentView.snp_removeConstraints()
-    }
-    
-    func updateLikes(dataId: UInt) {
-        guard dataId == self.data.newsId else { return }
-        
-        if let likesCount = self.data.likesCount {
-            self.likesCountLabel.text = String(likesCount)
-        }
-        else {
-            self.likesCountLabel.text = "0"
-        }
     }
     
 }
