@@ -23,6 +23,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var articlesHitBottom: Bool = false
     private var loadingCellManager: LoadingCellManager!
     
+    private var loadingView: SimpleLoadingView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,11 +44,17 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.loadingCellManager = LoadingCellManager(cellWidth: self.timeline.width, backgroundColor: UIColor.whiteColor(), textColor: UIColor.blueColor(), textForReadyReload: "もう一度読み込む")
         
-        let loadingView = SimpleLoadingView(frame: self.view.frame)
-        self.view.addSubview(loadingView)
-        self.updateContents() {
+        self.loadingView = SimpleLoadingView(frame: self.view.frame)
+        self.view.addSubview(self.loadingView!)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.updateContents() { [unowned self] in
             if !self.updatingContents {
-                loadingView.removeFromSuperview()
+                self.loadingView?.removeFromSuperview()
+                self.loadingView = nil
             }
         }
     }
@@ -241,7 +249,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func writeArticle() {
-        
+        let vc = NewsUploadViewController()
+        self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
 }
