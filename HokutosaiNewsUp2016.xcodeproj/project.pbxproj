@@ -24,6 +24,10 @@
 		A7E258EE1CEDA7DB00923235 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258ED1CEDA7DB00923235 /* Article.swift */; };
 		A7E258F01CEDA88E00923235 /* UploadingArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258EF1CEDA88E00923235 /* UploadingArticle.swift */; };
 		A7E258F51CEDA9CC00923235 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258F41CEDA9CC00923235 /* Media.swift */; };
+		A7E258FA1CEDAB5E00923235 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258F91CEDAB5E00923235 /* ExhibitionItem.swift */; };
+		A7E258FC1CEDAB7C00923235 /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258FB1CEDAB7C00923235 /* ShopItem.swift */; };
+		A7E258FE1CEDAB9100923235 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258FD1CEDAB9100923235 /* EventItem.swift */; };
+		A7E259011CEDABDE00923235 /* HokutosaiDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E259001CEDABDE00923235 /* HokutosaiDateTransform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		A7E258ED1CEDA7DB00923235 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		A7E258EF1CEDA88E00923235 /* UploadingArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadingArticle.swift; sourceTree = "<group>"; };
 		A7E258F41CEDA9CC00923235 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		A7E258F91CEDAB5E00923235 /* ExhibitionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
+		A7E258FB1CEDAB7C00923235 /* ShopItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
+		A7E258FD1CEDAB9100923235 /* EventItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
+		A7E259001CEDABDE00923235 /* HokutosaiDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiDateTransform.swift; sourceTree = "<group>"; };
 		CBB49291EBF31E2C570A7DCD /* Pods-HokutosaiNewsUp2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFC3C91F5D23F7381CE62 /* Pods-HokutosaiNewsUp2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +130,7 @@
 		A7E258A71CEC4D5600923235 /* HokutosaiNewsUp2016 */ = {
 			isa = PBXGroup;
 			children = (
+				A7E258FF1CEDABAB00923235 /* Utility */,
 				A7E258D91CED9F7400923235 /* REST */,
 				A7E258D81CED9A2A00923235 /* View */,
 				A7E258D71CED9A2400923235 /* Model */,
@@ -162,7 +171,10 @@
 		A7E258D71CED9A2400923235 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A7E258F11CEDA99800923235 /* Media */,
+				A7E258F81CEDAB0400923235 /* Exhibitions */,
+				A7E258F71CEDAAFD00923235 /* Shops */,
+				A7E258F61CEDAAF300923235 /* Events */,
+				A7E258F11CEDA99800923235 /* Medias */,
 				A7E258EC1CEDA7B600923235 /* News */,
 				A7E258E71CEDA3C300923235 /* HokutosaiApi */,
 			);
@@ -215,12 +227,44 @@
 			name = News;
 			sourceTree = "<group>";
 		};
-		A7E258F11CEDA99800923235 /* Media */ = {
+		A7E258F11CEDA99800923235 /* Medias */ = {
 			isa = PBXGroup;
 			children = (
 				A7E258F41CEDA9CC00923235 /* Media.swift */,
 			);
-			name = Media;
+			name = Medias;
+			sourceTree = "<group>";
+		};
+		A7E258F61CEDAAF300923235 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A7E258FD1CEDAB9100923235 /* EventItem.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		A7E258F71CEDAAFD00923235 /* Shops */ = {
+			isa = PBXGroup;
+			children = (
+				A7E258FB1CEDAB7C00923235 /* ShopItem.swift */,
+			);
+			name = Shops;
+			sourceTree = "<group>";
+		};
+		A7E258F81CEDAB0400923235 /* Exhibitions */ = {
+			isa = PBXGroup;
+			children = (
+				A7E258F91CEDAB5E00923235 /* ExhibitionItem.swift */,
+			);
+			name = Exhibitions;
+			sourceTree = "<group>";
+		};
+		A7E258FF1CEDABAB00923235 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A7E259001CEDABDE00923235 /* HokutosaiDateTransform.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		B089A4A39F7F274BCDE990C6 /* Pods */ = {
@@ -423,10 +467,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E258E11CEDA0D700923235 /* HttpResponse.swift in Sources */,
+				A7E258FA1CEDAB5E00923235 /* ExhibitionItem.swift in Sources */,
+				A7E258FE1CEDAB9100923235 /* EventItem.swift in Sources */,
+				A7E258FC1CEDAB7C00923235 /* ShopItem.swift in Sources */,
 				A7E258E51CEDA2C600923235 /* HokutosaiApi.swift in Sources */,
 				A7E258F51CEDA9CC00923235 /* Media.swift in Sources */,
 				A7E258E21CEDA0D700923235 /* REST.swift in Sources */,
 				A7E258EA1CEDA40400923235 /* HokutosaiApiError.swift in Sources */,
+				A7E259011CEDABDE00923235 /* HokutosaiDateTransform.swift in Sources */,
 				A7E258EE1CEDA7DB00923235 /* Article.swift in Sources */,
 				A7E258EB1CEDA40400923235 /* HokutosaiApiStatus.swift in Sources */,
 				A7E258DC1CEDA09000923235 /* NetworkResource.swift in Sources */,
