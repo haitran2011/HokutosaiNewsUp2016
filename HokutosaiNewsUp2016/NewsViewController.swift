@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     private var articles: [Article]?
     
@@ -31,6 +31,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTimeline()
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(NewsViewController.cellLongPressed(_:)))
+        longPressRecognizer.delegate = self
+        self.timeline.addGestureRecognizer(longPressRecognizer)
         
         self.loadingCellManager = LoadingCellManager(cellWidth: self.timeline.width, backgroundColor: UIColor.whiteColor(), textColor: UIColor.blueColor(), textForReadyReload: "もう一度読み込む")
         
@@ -187,6 +191,40 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func reloadData() {
         self.timeline.reloadData()
+    }
+    
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.locationInView(self.timeline)
+        guard recognizer.state == UIGestureRecognizerState.Began,
+            let indexPath = self.timeline.indexPathForRowAtPoint(point),
+            let data = self.articles,
+            let newsId = data[indexPath.row].newsId
+            else { return }
+        
+        self.tappedCell(newsId, title: data[indexPath.row].title)
+    }
+    
+    func tappedCell(newsId: UInt, title: String?) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "お知らせを削除する", style: .Destructive) { action in
+            let confirmAlert = UIAlertController(title: "[削除] ID: \(newsId)", message: "title: \(title ?? "タイトル無し")", preferredStyle: .Alert)
+            confirmAlert.addAction(UIAlertAction(title: "削除", style: .Default) { action in
+                self.deleteArticle(newsId)
+            })
+            confirmAlert.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+            self.presentViewController(confirmAlert, animated: true, completion: nil)
+        }
+        alertController.addAction(deleteAction)
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func deleteArticle(newsId: UInt) {
+        print("delete \(newsId)")
     }
     
 }
