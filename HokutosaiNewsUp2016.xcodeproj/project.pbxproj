@@ -35,6 +35,7 @@
 		A7E2590C1CEDB7DF00923235 /* SimpleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2590B1CEDB7DF00923235 /* SimpleLoadingView.swift */; };
 		A7E2590F1CEDB7FD00923235 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2590E1CEDB7FD00923235 /* Color.swift */; };
 		A7E259111CEDBB9A00923235 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E259101CEDBB9A00923235 /* UIViewExtension.swift */; };
+		A7E259171CEDED9B00923235 /* NewsUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E259161CEDED9B00923235 /* NewsUploadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		A7E2590B1CEDB7DF00923235 /* SimpleLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLoadingView.swift; sourceTree = "<group>"; };
 		A7E2590E1CEDB7FD00923235 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A7E259101CEDBB9A00923235 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		A7E259161CEDED9B00923235 /* NewsUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsUploadViewController.swift; sourceTree = "<group>"; };
 		CBB49291EBF31E2C570A7DCD /* Pods-HokutosaiNewsUp2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFC3C91F5D23F7381CE62 /* Pods-HokutosaiNewsUp2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				A7E259071CEDB70D00923235 /* NewsViewController.swift */,
+				A7E259161CEDED9B00923235 /* NewsUploadViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				A7E259011CEDABDE00923235 /* HokutosaiDateTransform.swift in Sources */,
 				A7E258EE1CEDA7DB00923235 /* Article.swift in Sources */,
 				A7E258EB1CEDA40400923235 /* HokutosaiApiStatus.swift in Sources */,
+				A7E259171CEDED9B00923235 /* NewsUploadViewController.swift in Sources */,
 				A7E258DC1CEDA09000923235 /* NetworkResource.swift in Sources */,
 				A7E258F01CEDA88E00923235 /* UploadingArticle.swift in Sources */,
 				A7E2590A1CEDB7B600923235 /* LoadingCellManager.swift in Sources */,
