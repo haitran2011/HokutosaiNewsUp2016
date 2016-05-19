@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = UINavigationController(rootViewController: NewsViewController())
         self.window?.makeKeyAndVisible()
         
+        UINavigationBar.appearance().barTintColor = UIColor.grayscale(30)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.orangeColor()]
+        
         return true
     }
 
