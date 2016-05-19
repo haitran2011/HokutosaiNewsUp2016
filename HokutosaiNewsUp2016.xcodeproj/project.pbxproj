@@ -102,6 +102,10 @@
 		A7E258A71CEC4D5600923235 /* HokutosaiNewsUp2016 */ = {
 			isa = PBXGroup;
 			children = (
+				A7E258D91CED9F7400923235 /* REST */,
+				A7E258D81CED9A2A00923235 /* View */,
+				A7E258D71CED9A2400923235 /* Model */,
+				A7E258D61CED9A0F00923235 /* Controller */,
 				A7E258A81CEC4D5600923235 /* AppDelegate.swift */,
 				A7E258AA1CEC4D5600923235 /* ViewController.swift */,
 				A7E258AF1CEC4D5600923235 /* Assets.xcassets */,
@@ -127,6 +131,42 @@
 				A7E258CA1CEC4D5600923235 /* Info.plist */,
 			);
 			path = HokutosaiNewsUp2016UITests;
+			sourceTree = "<group>";
+		};
+		A7E258D61CED9A0F00923235 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A7E258D71CED9A2400923235 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A7E258D81CED9A2A00923235 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A7E258D91CED9F7400923235 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				A7E258DA1CED9FA300923235 /* HokutosaiApi */,
+			);
+			name = REST;
+			sourceTree = "<group>";
+		};
+		A7E258DA1CED9FA300923235 /* HokutosaiApi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HokutosaiApi;
 			sourceTree = "<group>";
 		};
 		B089A4A39F7F274BCDE990C6 /* Pods */ = {
