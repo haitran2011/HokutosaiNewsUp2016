@@ -245,6 +245,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return
             }
+            
+            self.updateContents()
         }
     }
     
