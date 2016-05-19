@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8EE45226B3A1AB702FA5D638 /* Pods_HokutosaiNewsUp2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57477C83985456C469B8703B /* Pods_HokutosaiNewsUp2016.framework */; };
 		A7E258A91CEC4D5600923235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258A81CEC4D5600923235 /* AppDelegate.swift */; };
-		A7E258AB1CEC4D5600923235 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258AA1CEC4D5600923235 /* ViewController.swift */; };
 		A7E258B01CEC4D5600923235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E258AF1CEC4D5600923235 /* Assets.xcassets */; };
 		A7E258B31CEC4D5600923235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E258B11CEC4D5600923235 /* LaunchScreen.storyboard */; };
 		A7E258BE1CEC4D5600923235 /* HokutosaiNewsUp2016Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258BD1CEC4D5600923235 /* HokutosaiNewsUp2016Tests.swift */; };
@@ -45,7 +44,6 @@
 		57477C83985456C469B8703B /* Pods_HokutosaiNewsUp2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HokutosaiNewsUp2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E258A51CEC4D5600923235 /* HokutosaiNewsUp2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HokutosaiNewsUp2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E258A81CEC4D5600923235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7E258AA1CEC4D5600923235 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A7E258AF1CEC4D5600923235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7E258B21CEC4D5600923235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7E258B41CEC4D5600923235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				A7E258D71CED9A2400923235 /* Model */,
 				A7E258D61CED9A0F00923235 /* Controller */,
 				A7E258A81CEC4D5600923235 /* AppDelegate.swift */,
-				A7E258AA1CEC4D5600923235 /* ViewController.swift */,
 				A7E258AF1CEC4D5600923235 /* Assets.xcassets */,
 				A7E258B11CEC4D5600923235 /* LaunchScreen.storyboard */,
 				A7E258B41CEC4D5600923235 /* Info.plist */,
@@ -405,7 +402,6 @@
 				A7E258E21CEDA0D700923235 /* REST.swift in Sources */,
 				A7E258EA1CEDA40400923235 /* HokutosaiApiError.swift in Sources */,
 				A7E258EB1CEDA40400923235 /* HokutosaiApiStatus.swift in Sources */,
-				A7E258AB1CEC4D5600923235 /* ViewController.swift in Sources */,
 				A7E258DC1CEDA09000923235 /* NetworkResource.swift in Sources */,
 				A7E258E01CEDA0D700923235 /* Endpoint.swift in Sources */,
 				A7E258A91CEC4D5600923235 /* AppDelegate.swift in Sources */,
