@@ -28,6 +28,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         self.title = "お知らせ"
         
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(named: "WriteIcon"), style: .Plain, target: self, action: #selector(NewsViewController.writeArticle))
+        ]
+        
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.generateTimeline()
@@ -225,6 +229,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func deleteArticle(newsId: UInt) {
         print("delete \(newsId)")
+    }
+    
+    func writeArticle() {
+        
     }
     
 }
