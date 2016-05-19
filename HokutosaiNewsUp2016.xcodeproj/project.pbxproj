@@ -14,6 +14,10 @@
 		A7E258B31CEC4D5600923235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E258B11CEC4D5600923235 /* LaunchScreen.storyboard */; };
 		A7E258BE1CEC4D5600923235 /* HokutosaiNewsUp2016Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258BD1CEC4D5600923235 /* HokutosaiNewsUp2016Tests.swift */; };
 		A7E258C91CEC4D5600923235 /* HokutosaiNewsUp2016UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258C81CEC4D5600923235 /* HokutosaiNewsUp2016UITests.swift */; };
+		A7E258DC1CEDA09000923235 /* NetworkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258DB1CEDA09000923235 /* NetworkResource.swift */; };
+		A7E258E01CEDA0D700923235 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258DD1CEDA0D700923235 /* Endpoint.swift */; };
+		A7E258E11CEDA0D700923235 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258DE1CEDA0D700923235 /* HttpResponse.swift */; };
+		A7E258E21CEDA0D700923235 /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258DF1CEDA0D700923235 /* REST.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		A7E258C41CEC4D5600923235 /* HokutosaiNewsUp2016UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HokutosaiNewsUp2016UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E258C81CEC4D5600923235 /* HokutosaiNewsUp2016UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HokutosaiNewsUp2016UITests.swift; sourceTree = "<group>"; };
 		A7E258CA1CEC4D5600923235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7E258DB1CEDA09000923235 /* NetworkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResource.swift; sourceTree = "<group>"; };
+		A7E258DD1CEDA0D700923235 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A7E258DE1CEDA0D700923235 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		A7E258DF1CEDA0D700923235 /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
 		CBB49291EBF31E2C570A7DCD /* Pods-HokutosaiNewsUp2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFC3C91F5D23F7381CE62 /* Pods-HokutosaiNewsUp2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +165,10 @@
 		A7E258D91CED9F7400923235 /* REST */ = {
 			isa = PBXGroup;
 			children = (
+				A7E258DD1CEDA0D700923235 /* Endpoint.swift */,
+				A7E258DE1CEDA0D700923235 /* HttpResponse.swift */,
+				A7E258DF1CEDA0D700923235 /* REST.swift */,
+				A7E258DB1CEDA09000923235 /* NetworkResource.swift */,
 				A7E258DA1CED9FA300923235 /* HokutosaiApi */,
 			);
 			name = REST;
@@ -368,7 +380,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E258E11CEDA0D700923235 /* HttpResponse.swift in Sources */,
+				A7E258E21CEDA0D700923235 /* REST.swift in Sources */,
 				A7E258AB1CEC4D5600923235 /* ViewController.swift in Sources */,
+				A7E258DC1CEDA09000923235 /* NetworkResource.swift in Sources */,
+				A7E258E01CEDA0D700923235 /* Endpoint.swift in Sources */,
 				A7E258A91CEC4D5600923235 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
