@@ -15,11 +15,12 @@ class UploadingArticle: Mappable {
     var relatedEventId: UInt?
     var relatedShopId: UInt?
     var relatedExhibitionId: UInt?
-    var isTopic: Bool?
+    var isTopic: Bool = false
     var tag: String?
     var text: String?
     var medias: [Media]?
     
+    init() {}
     required init?(_ map: Map) { }
     
     func mapping(map: Map) {
