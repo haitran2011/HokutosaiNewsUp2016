@@ -28,6 +28,8 @@
 		A7E258FC1CEDAB7C00923235 /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258FB1CEDAB7C00923235 /* ShopItem.swift */; };
 		A7E258FE1CEDAB9100923235 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E258FD1CEDAB9100923235 /* EventItem.swift */; };
 		A7E259011CEDABDE00923235 /* HokutosaiDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E259001CEDABDE00923235 /* HokutosaiDateTransform.swift */; };
+		A7E259051CEDAD2600923235 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E259031CEDAD2600923235 /* NewsTableViewCell.swift */; };
+		A7E259061CEDAD2600923235 /* NewsTableViewCellContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7E259041CEDAD2600923235 /* NewsTableViewCellContent.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		A7E258FB1CEDAB7C00923235 /* ShopItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		A7E258FD1CEDAB9100923235 /* EventItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		A7E259001CEDABDE00923235 /* HokutosaiDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HokutosaiDateTransform.swift; sourceTree = "<group>"; };
+		A7E259031CEDAD2600923235 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		A7E259041CEDAD2600923235 /* NewsTableViewCellContent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCellContent.xib; sourceTree = "<group>"; };
 		CBB49291EBF31E2C570A7DCD /* Pods-HokutosaiNewsUp2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.release.xcconfig"; sourceTree = "<group>"; };
 		CFCBFC3C91F5D23F7381CE62 /* Pods-HokutosaiNewsUp2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HokutosaiNewsUp2016.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HokutosaiNewsUp2016/Pods-HokutosaiNewsUp2016.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +188,7 @@
 		A7E258D81CED9A2A00923235 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7E259021CEDACB000923235 /* TableViewCell */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -265,6 +270,15 @@
 				A7E259001CEDABDE00923235 /* HokutosaiDateTransform.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		A7E259021CEDACB000923235 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A7E259031CEDAD2600923235 /* NewsTableViewCell.swift */,
+				A7E259041CEDAD2600923235 /* NewsTableViewCellContent.xib */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		B089A4A39F7F274BCDE990C6 /* Pods */ = {
@@ -393,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E258B31CEC4D5600923235 /* LaunchScreen.storyboard in Resources */,
+				A7E259061CEDAD2600923235 /* NewsTableViewCellContent.xib in Resources */,
 				A7E258B01CEC4D5600923235 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +495,7 @@
 				A7E258DC1CEDA09000923235 /* NetworkResource.swift in Sources */,
 				A7E258F01CEDA88E00923235 /* UploadingArticle.swift in Sources */,
 				A7E258E01CEDA0D700923235 /* Endpoint.swift in Sources */,
+				A7E259051CEDAD2600923235 /* NewsTableViewCell.swift in Sources */,
 				A7E258A91CEC4D5600923235 /* AppDelegate.swift in Sources */,
 				A7E258E61CEDA2C600923235 /* HokutosaiApiEndpoint.swift in Sources */,
 			);
