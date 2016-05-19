@@ -8,6 +8,7 @@ target 'HokutosaiNewsUp2016' do
   pod 'AlamofireImage'
   pod 'SnapKit', '~> 0.15.0'
   pod 'UITextView+Placeholder', '~> 1.2'
+  pod 'Eureka', '~> 1.5'
 end
 
 target 'HokutosaiNewsUp2016Tests' do
