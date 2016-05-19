@@ -228,7 +228,16 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func deleteArticle(newsId: UInt) {
-        print("delete \(newsId)")
+        HokutosaiApi.DELETE(HokutosaiApi.News.DeleteOnlyArticle(newsId: newsId)) { response in
+            guard response.isSuccess, let _ = response.model else {
+                let code = response.statusCode ?? 0
+                let cause = response.error?.cause ?? "不明"
+                let alertController = UIAlertController(title: "Failured (#\(code))", message: "[ID:\(newsId)]の削除に失敗しました。(\(cause))", preferredStyle: .ActionSheet)
+                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+        }
     }
     
     func writeArticle() {
