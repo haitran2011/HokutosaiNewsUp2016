@@ -41,6 +41,46 @@ class HokutosaiApi {
         
     }
     
+    // Upload medias
+    class func uploadMedias(images: [UIImage], quality: CGFloat = 0.8, recipient: ((HttpResponse<[Media], HokutosaiApiError>) -> Void)) {
+        Alamofire.upload(.POST, "https://api.hokutosai.tech/2016/media",
+                         headers: generateHeaders(nil, account: HokutosaiAccount.sharedAccountForManager),
+                         multipartFormData: { multipartFormData in
+                            for image in images {
+                                if let imageData = UIImageJPEGRepresentation(image, quality) {
+                                    multipartFormData.appendBodyPart(data: imageData, name: "media", fileName: "upload.jpg", mimeType: "image/jpg")
+                                }
+                            }
+                         },
+                         encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .Success(let upload, _, _):
+                                upload.response { request, response, data, error in
+                                    guard error == nil, let data = data else {
+                                        recipient(HttpResponse<[Media], HokutosaiApiError>(isSuccess: false, response: nil, model: nil, error: nil))
+                                        return
+                                    }
+                                    
+                                    guard response?.statusCode < 400 else {
+                                        let error = Mapper<HokutosaiApiError>().map(data)
+                                        recipient(HttpResponse<[Media], HokutosaiApiError>(isSuccess: false, response: nil, model: nil, error: error))
+                                        return
+                                    }
+                                    
+                                    let json = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+                                    let model = Mapper<Media>().mapArray(json)
+                                    recipient(HttpResponse<[Media], HokutosaiApiError>(isSuccess: model != nil, response: nil, model: model, error: nil))
+                                }
+                            case .Failure(_):
+                                recipient(HttpResponse<[Media], HokutosaiApiError>(isSuccess: false, response: nil, model: nil, error: nil))
+                                break
+                            }
+                         }
+                    )
+    }
+    
+    // General
+    
     class func GET<ModelType: Mappable, ResourceType: ArrayResource<ModelType>>(
         endpoint: HokutosaiApiEndpoint<ResourceType>,
         parameters: [String: AnyObject]? = nil,

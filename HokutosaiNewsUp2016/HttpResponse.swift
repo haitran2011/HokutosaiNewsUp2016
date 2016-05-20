@@ -11,15 +11,15 @@ import Alamofire
 
 class HttpResponse<BodyType, ErrorType> {
     let isSuccess: Bool
-    let response: Response<AnyObject, NSError>
+    let response: Response<AnyObject, NSError>?
     let model: BodyType?
     let error: ErrorType?
     
     var statusCode: Int? {
-        return self.response.response?.statusCode
+        return self.response?.response?.statusCode
     }
     
-    init (isSuccess: Bool, response: Response<AnyObject, NSError>, model: BodyType?, error: ErrorType?) {
+    init (isSuccess: Bool, response: Response<AnyObject, NSError>?, model: BodyType?, error: ErrorType?) {
         self.isSuccess = isSuccess
         self.response = response
         self.model = model
