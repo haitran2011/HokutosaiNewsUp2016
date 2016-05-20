@@ -30,6 +30,8 @@ class NewsUploadViewController: FormViewController {
     private var shops: [String: UInt]!
     private var exhibitions: [String: UInt]!
     
+    private var quality: Double = 80.0
+    
     init(events: [EventItem]?, shops: [ShopItem]?, exhibitions: [ExhibitionItem]?) {
         super.init(nibName: nil, bundle: NSBundle.mainBundle())
         
@@ -67,6 +69,8 @@ class NewsUploadViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "投稿"
         
         self.cancelButton = UIBarButtonItem(title: "キャンセル", style: .Plain, target: self, action: #selector(NewsUploadViewController.cancel))
         self.navigationItem.leftBarButtonItems = [self.cancelButton]
@@ -144,6 +148,22 @@ class NewsUploadViewController: FormViewController {
                 self.article.relatedExhibitionId = self.exhibitions[row.value ?? "-"]
             }
         +++ Section("画像")
+            <<< StepperRow("Quality") {
+                $0.title = "圧縮率"
+                $0.value = self.quality
+            }.onChange { row in
+                if var value = row.value {
+                    if value < 0.0 {
+                        value = 0.0
+                        row.value = 0.0
+                    }
+                    else if value > 100.0 {
+                        value = 100.0
+                        row.value = 100.0
+                    }
+                    self.quality = value
+                }
+            }
             <<< ImageRow("Image0") {
                 $0.title = "画像0"
             }.onChange { row in
@@ -225,7 +245,7 @@ class NewsUploadViewController: FormViewController {
         
         let uploadingImages = self.makeUploadingImages()
         if uploadingImages.count > 0 {
-            HokutosaiApi.uploadMedias(uploadingImages, quality: 0.8) { response in
+            HokutosaiApi.uploadMedias(uploadingImages, quality: CGFloat(self.quality / 100.0)) { response in
                 guard response.isSuccess, let medias = response.model else {
                     let code = response.statusCode ?? 0
                     let cause = response.error?.cause ?? "不明"
