@@ -8,6 +8,20 @@
 
 import UIKit
 
+extension UIViewController {
+    
+    var appearOriginY: CGFloat {
+        var originY = UIApplication.sharedApplication().statusBarFrame.size.height
+        
+        if let navigationController = self.navigationController {
+            originY += navigationController.navigationBar.frame.size.height
+        }
+        
+        return originY
+    }
+
+}
+    
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     private var articles: [Article]?
@@ -37,6 +51,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.writeIcon = UIBarButtonItem(image: UIImage(named: "WriteIcon"), style: .Plain, target: self, action: #selector(NewsViewController.writeArticle))
         self.navigationItem.rightBarButtonItems = [self.writeIcon]
+        self.navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(title: "更新", style: .Plain, target: self, action: #selector(NewsViewController.updateContents as (NewsViewController) -> () -> ()))
+        ]
         
         self.view.backgroundColor = UIColor.whiteColor()
         
@@ -166,7 +183,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func updateContents() {
         guard self.timeline != nil else { return }
         self.updateTimeline() {
-            self.timeline.setContentOffset(CGPointZero, animated: false)
+            self.timeline.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: false)
         }
     }
     
