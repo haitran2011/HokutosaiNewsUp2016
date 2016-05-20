@@ -34,4 +34,15 @@ class UploadingArticle: Mappable {
         self.medias <- map["medias"]
     }
     
+    init(other: UploadingArticle) {
+        self.title = other.title
+        self.relatedEventId = other.relatedEventId
+        self.relatedShopId = other.relatedShopId
+        self.relatedExhibitionId = other.relatedExhibitionId
+        self.isTopic = other.isTopic
+        self.tag = other.tag
+        self.text = other.text
+        self.medias = other.medias
+    }
+    
 }
