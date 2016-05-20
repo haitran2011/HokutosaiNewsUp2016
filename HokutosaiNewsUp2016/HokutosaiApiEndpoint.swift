@@ -61,11 +61,15 @@ extension HokutosaiApi {
         
     }
     
-    /*
     class Events {
         
         static let basePath = "/events"
         
+        class Enumeration: HokutosaiApiEndpoint<ArrayResource<EventItem>> {
+            init() { super.init(basePath: basePath, path: "/enumeration") }
+        }
+        
+        /*
         class Events: HokutosaiApiEndpoint<ArrayResource<Event>> {
             init() { super.init(basePath: basePath) }
         }
@@ -85,15 +89,19 @@ extension HokutosaiApi {
         class Likes: HokutosaiApiEndpoint<ObjectResource<LikeResult>> {
             init(eventId: UInt) { super.init(basePath: basePath, path: "/\(eventId)/likes") }
         }
+        */
         
     }
-    */
     
-    /*
     class Shops {
         
         static let basePath = "/shops"
         
+        class Enumeration: HokutosaiApiEndpoint<ArrayResource<ShopItem>> {
+            init() { super.init(basePath: basePath, path: "/enumeration") }
+        }
+        
+        /*
         class All: HokutosaiApiEndpoint<ArrayResource<Shop>> {
             init() { super.init(basePath: basePath) }
         }
@@ -121,15 +129,19 @@ extension HokutosaiApi {
         class AssessmentReport: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>> {
             init(assessmentId: UInt) { super.init(basePath: basePath, path: "/assessment/\(assessmentId)/report") }
         }
+        */
         
     }
-    */
     
-    /*
     class Exhibitions {
         
         static let basePath = "/exhibitions"
         
+        class Enumeration: HokutosaiApiEndpoint<ArrayResource<ExhibitionItem>> {
+            init() { super.init(basePath: basePath, path: "/enumeration") }
+        }
+        
+        /*
         class All: HokutosaiApiEndpoint<ArrayResource<Exhibition>> {
             init() { super.init(basePath: basePath) }
         }
@@ -157,9 +169,9 @@ extension HokutosaiApi {
         class AssessmentReport: HokutosaiApiEndpoint<ObjectResource<HokutosaiApiStatus>> {
             init(assessmentId: UInt) { super.init(basePath: basePath, path: "/assessment/\(assessmentId)/report") }
         }
+        */
         
     }
-    */
     
     /*
     class Accounts {

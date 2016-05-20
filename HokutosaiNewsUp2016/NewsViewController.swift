@@ -8,9 +8,26 @@
 
 import UIKit
 
+extension UIViewController {
+    
+    var appearOriginY: CGFloat {
+        var originY = UIApplication.sharedApplication().statusBarFrame.size.height
+        
+        if let navigationController = self.navigationController {
+            originY += navigationController.navigationBar.frame.size.height
+        }
+        
+        return originY
+    }
+
+}
+    
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     private var articles: [Article]?
+    private var events: [EventItem]?
+    private var shops: [ShopItem]?
+    private var exhibitions: [ExhibitionItem]?
     
     private var timeline: UITableView!
     
@@ -18,20 +35,24 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private var updatingTimeline: Bool = false
     var updatingContents: Bool { return self.updatingTimeline }
+    private var countOfRequestEnumeration: UInt = 0
     
     private let onceGetArticleCount: UInt = 25
     private var articlesHitBottom: Bool = false
     private var loadingCellManager: LoadingCellManager!
     
     private var loadingView: SimpleLoadingView?
+    private var writeIcon: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "お知らせ"
         
-        self.navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(named: "WriteIcon"), style: .Plain, target: self, action: #selector(NewsViewController.writeArticle))
+        self.writeIcon = UIBarButtonItem(image: UIImage(named: "WriteIcon"), style: .Plain, target: self, action: #selector(NewsViewController.writeArticle))
+        self.navigationItem.rightBarButtonItems = [self.writeIcon]
+        self.navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(title: "更新", style: .Plain, target: self, action: #selector(NewsViewController.updateContents as (NewsViewController) -> () -> ()))
         ]
         
         self.view.backgroundColor = UIColor.whiteColor()
@@ -46,6 +67,31 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.loadingView = SimpleLoadingView(frame: self.view.frame)
         self.view.addSubview(self.loadingView!)
+        
+        self.fetchEnumerations()
+    }
+    
+    func fetchEnumerations() {
+        self.writeIcon.enabled = false
+        self.countOfRequestEnumeration = 3
+        
+        HokutosaiApi.GET(HokutosaiApi.Events.Enumeration()) { response in
+            self.events = response.model
+            self.countOfRequestEnumeration -= 1
+            self.writeIcon.enabled = self.countOfRequestEnumeration == 0
+        }
+        
+        HokutosaiApi.GET(HokutosaiApi.Shops.Enumeration()) { response in
+            self.shops = response.model
+            self.countOfRequestEnumeration -= 1
+            self.writeIcon.enabled = self.countOfRequestEnumeration == 0
+        }
+        
+        HokutosaiApi.GET(HokutosaiApi.Exhibitions.Enumeration()) { response in
+            self.exhibitions = response.model
+            self.countOfRequestEnumeration -= 1
+            self.writeIcon.enabled = self.countOfRequestEnumeration == 0
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -137,7 +183,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func updateContents() {
         guard self.timeline != nil else { return }
         self.updateTimeline() {
-            self.timeline.setContentOffset(CGPointZero, animated: false)
+            self.timeline.setContentOffset(CGPoint(x: 0.0, y: -self.appearOriginY), animated: false)
         }
     }
     
@@ -147,6 +193,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func onRefresh(refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
         
+        self.fetchEnumerations()
         self.updateContents() {
             if !self.updatingContents {
                 refreshControl.endRefreshing()
@@ -251,7 +298,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func writeArticle() {
-        let vc = NewsUploadViewController()
+        let vc = NewsUploadViewController(events: self.events, shops: self.shops, exhibitions: self.exhibitions)
         self.presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
