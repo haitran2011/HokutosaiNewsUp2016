@@ -26,6 +26,45 @@ class NewsUploadViewController: FormViewController {
     private var sendButton: UIBarButtonItem!
     private var cancelButton: UIBarButtonItem!
     
+    private var events: [String: UInt]!
+    private var shops: [String: UInt]!
+    private var exhibitions: [String: UInt]!
+    
+    init(events: [EventItem]?, shops: [ShopItem]?, exhibitions: [ExhibitionItem]?) {
+        super.init(nibName: nil, bundle: NSBundle.mainBundle())
+        
+        self.events = [String: UInt]()
+        if let items = events {
+            for item in items {
+                if let title = item.title, let id = item.eventId {
+                    self.events[title] = id
+                }
+            }
+        }
+            
+        self.shops = [String: UInt]()
+        if let items = shops {
+            for item in items {
+                if let title = item.name, let id = item.shopId {
+                    self.shops[title] = id
+                }
+            }
+        }
+        
+        self.exhibitions = [String: UInt]()
+        if let items = exhibitions {
+            for item in items {
+                if let title = item.title, let id = item.exhibitionId {
+                    self.exhibitions[title] = id
+                }
+            }
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,6 +111,37 @@ class NewsUploadViewController: FormViewController {
             }.onChange { row in
                 self.article.text = row.value
                 self.validate()
+            }
+        +++ Section("関連付け")
+            <<< PickerInlineRow<String>("Event") {
+                $0.title = "企画"
+                var eventItems: [String] = ["-"]
+                for (title, _) in self.events {
+                    eventItems.append(title)
+                }
+                $0.options = eventItems
+            }.onChange { row in
+                self.article.relatedEventId = self.events[row.value ?? "-"]
+            }
+            <<< PickerInlineRow<String>("Shop") {
+                $0.title = "模擬店"
+                var shopItems: [String] = ["-"]
+                for (name, _) in self.shops {
+                    shopItems.append(name)
+                }
+                $0.options = shopItems
+            }.onChange { row in
+                self.article.relatedShopId = self.shops[row.value ?? "-"]
+            }
+            <<< PickerInlineRow<String>("Exhibition") {
+                $0.title = "展示"
+                var exhibitionItems: [String] = ["-"]
+                for (title, _) in self.exhibitions {
+                    exhibitionItems.append(title)
+                }
+                $0.options = exhibitionItems
+            }.onChange { row in
+                self.article.relatedExhibitionId = self.exhibitions[row.value ?? "-"]
             }
         +++ Section("画像")
             <<< ImageRow("Image0") {
@@ -159,7 +229,7 @@ class NewsUploadViewController: FormViewController {
                 guard response.isSuccess, let medias = response.model else {
                     let code = response.statusCode ?? 0
                     let cause = response.error?.cause ?? "不明"
-                    let alertController = UIAlertController(title: "Failured (#\(code))", message: "お知らせの投稿に失敗しました。(\(cause))", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "Failured (#\(code))", message: "画像のアップロードに失敗しました。(\(cause))", preferredStyle: .Alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                     self.presentViewController(alertController, animated: true, completion: nil)
                     self.sendButton.enabled = true
